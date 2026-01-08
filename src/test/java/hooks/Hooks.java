@@ -15,7 +15,7 @@ public class Hooks {
     public void setup() {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--start-maximized");
-        chromeOptions.addArguments("guest");
+        chromeOptions.addArguments("--guest");
         chromeOptions.addArguments("--disable-notifications");
         chromeOptions.addArguments("--disable-popup-blocking");
         driver = new ChromeDriver(chromeOptions);
@@ -24,6 +24,13 @@ public class Hooks {
 
     @After
     public void tearDown() {
-        driver.quit();
+        if (driver != null) {
+            driver.quit();
+            driver = null;
+        }
+    }
+
+    public static WebDriver getDriver() {
+        return driver;
     }
 }

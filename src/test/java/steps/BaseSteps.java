@@ -1,4 +1,4 @@
-package stepsDefinitions;
+package steps;
 
 import pages.BasePage;
 import io.cucumber.datatable.DataTable;

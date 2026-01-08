@@ -1,31 +1,37 @@
 package pages;
 
+import hooks.Hooks;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static hooks.Hooks.driver;
+import java.time.Duration;
+
 
 public class LoginPage {
+    WebDriver driver = Hooks.getDriver();
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
     public void logInAs(String username) {
         String PASSWORD = "secret_sauce";
-        WebElement usernameInput = driver.findElement(By.cssSelector("input[placeholder='Username']"));
+        WebElement usernameInput = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[placeholder='Username']")));
         usernameInput.sendKeys(username);
 
-        WebElement passwordInput = driver.findElement(By.cssSelector("input[placeholder='Password']"));
+        WebElement passwordInput = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[placeholder='Password']")));
         passwordInput.sendKeys(PASSWORD);
 
-        By loginButtonSelector = By.className("submit-button");
-        WebElement loginButton = driver.findElement(loginButtonSelector);
+        WebElement loginButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[data-test='login-button']")));
         loginButton.click();
 
     }
 
     public WebElement shouldBeRedirectedToProducts() {
-        return driver.findElement(By.className("inventory_container"));
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("inventory_container")));
     }
 
     public WebElement shouldSeeMessage() {
-        return driver.findElement(By.cssSelector("h3[data-test='error']"));
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("h3[data-test='error']")));
     }
 }
