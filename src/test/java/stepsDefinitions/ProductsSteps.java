@@ -1,6 +1,6 @@
-package StepsDefinitions;
+package stepsDefinitions;
 
-import Pages.ProductsPage;
+import pages.ProductsPage;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;

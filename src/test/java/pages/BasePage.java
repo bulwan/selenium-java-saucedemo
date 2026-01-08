@@ -1,11 +1,11 @@
-package Pages;
+package pages;
 
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 
-import static Hooks.Hooks.driver;
+import static hooks.Hooks.driver;
 
 public class BasePage {
 

@@ -1,6 +1,6 @@
-package StepsDefinitions;
+package stepsDefinitions;
 
-import Pages.LoginPage;
+import pages.LoginPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;

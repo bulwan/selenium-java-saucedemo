@@ -1,6 +1,6 @@
-package StepsDefinitions;
+package stepsDefinitions;
 
-import Pages.BasePage;
+import pages.BasePage;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
